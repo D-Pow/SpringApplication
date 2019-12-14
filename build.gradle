@@ -1,0 +1,75 @@
+plugins {
+    id 'java'
+    id 'idea'
+    // adding plugins here removes the need to declare them in buildscript {}
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+group 'org.dpow.backend'
+version '1.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task printVersion {
+    println rootProject.artifacts
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// Creates a JAR that can run by itself instead of a WAR that requires running in a Tomcat container
+bootJar {
+    baseName = project.name
+    version = project.version
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+    }
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+    }
+}
+
+//Run specific test using `gradle test --tests <TestClassName, e.g. _11_>`
+test {
+    // use JUnit
+    useJUnitPlatform()
+
+    // Log if a test suite passed/failed
+    testLogging {
+        events "passed", "failed", "skipped"
+    }
+
+    // Silence 'Build failed, run with --stacktrace' messages
+    ignoreFailures = true
+
+    // Summarize results of each test suite (or test file if no suites specified)
+    afterSuite { suite, result ->
+        if (!suite.parent) {
+            println "\nTest result: ${result.resultType}"
+            println "Test summary: ${result.testCount} tests, " +
+                    "${result.successfulTestCount} succeeded, " +
+                    "${result.failedTestCount} failed, " +
+                    "${result.skippedTestCount} skipped"
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = '6.0'
+    distributionType = Wrapper.DistributionType.ALL
+}
