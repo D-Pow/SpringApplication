@@ -1,4 +1,4 @@
-package hello;
+package boilerplate;
 
 import java.util.concurrent.atomic.AtomicLong;
 
