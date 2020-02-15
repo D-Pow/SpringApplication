@@ -1,4 +1,4 @@
-package boilerplate;
+package api;
 
 public class Greeting {
     private long id;
