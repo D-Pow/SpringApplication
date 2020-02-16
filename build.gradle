@@ -39,8 +39,8 @@ dependencies {
 
 // Creates a JAR that can run by itself instead of a WAR that requires running in a Tomcat container
 bootJar {
-    baseName = project.name
-    version = project.version
+    archiveBaseName = project.name
+    archiveVersion = project.version
 }
 
 sourceSets {
@@ -85,6 +85,6 @@ test {
 }
 
 wrapper {
-    gradleVersion = '6.0'
+    gradleVersion = '6.1.1'
     distributionType = Wrapper.DistributionType.ALL
 }
