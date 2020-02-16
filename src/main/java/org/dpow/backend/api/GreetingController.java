@@ -1,4 +1,4 @@
-package api;
+package org.dpow.backend.api;
 
 import java.util.concurrent.atomic.AtomicLong;
 

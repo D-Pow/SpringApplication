@@ -1,4 +1,4 @@
-package jpa;
+package org.dpow.backend.persistence;
 
 import lombok.Data;
 
@@ -16,9 +16,9 @@ public class Employee {
     private String name;
     private String role;
 
-    Employee() {}
+    protected Employee() {}
 
-    Employee(String name, String role) {
+    public Employee(String name, String role) {
         this.name = name;
         this.role = role;
     }

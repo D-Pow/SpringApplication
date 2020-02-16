@@ -1,4 +1,4 @@
-package jpa;
+package org.dpow.backend.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
