@@ -3,22 +3,22 @@ package org.dpow.backend.api;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.dpow.backend.persistence.Employee;
-import org.dpow.backend.persistence.EmployeeRepository;
+import org.dpow.backend.dao.model.Employee;
+import org.dpow.backend.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GreetingController {
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeDao employeeDao;
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        List<Employee> employeesWithName = employeeRepository.getEmployeesByName(name.toLowerCase());
+        List<Employee> employeesWithName = employeeDao.getEmployeesByName(name.toLowerCase());
 
         if (employeesWithName.size() == 0) {
             return new Greeting(counter.incrementAndGet(), String.format(template, name));

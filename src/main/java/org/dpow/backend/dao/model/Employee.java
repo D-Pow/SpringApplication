@@ -1,4 +1,4 @@
-package org.dpow.backend.persistence;
+package org.dpow.backend.dao.model;
 
 import lombok.Data;
 
