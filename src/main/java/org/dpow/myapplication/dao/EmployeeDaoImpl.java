@@ -1,7 +1,7 @@
-package org.dpow.backend.dao;
+package org.dpow.myapplication.dao;
 
-import org.dpow.backend.dao.model.Employee;
-import org.dpow.backend.dao.persistence.EmployeeRepository;
+import org.dpow.myapplication.dao.model.Employee;
+import org.dpow.myapplication.dao.persistence.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

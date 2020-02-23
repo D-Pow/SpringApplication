@@ -1,4 +1,4 @@
-package org.dpow.backend.api;
+package org.dpow.myapplication.api;
 
 public class Greeting {
     private long id;

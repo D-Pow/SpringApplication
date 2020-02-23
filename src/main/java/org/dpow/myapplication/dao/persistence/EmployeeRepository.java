@@ -1,6 +1,6 @@
-package org.dpow.backend.dao.persistence;
+package org.dpow.myapplication.dao.persistence;
 
-import org.dpow.backend.dao.model.Employee;
+import org.dpow.myapplication.dao.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,4 +1,4 @@
-package org.dpow.backend;
+package org.dpow.myapplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

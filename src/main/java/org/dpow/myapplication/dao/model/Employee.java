@@ -1,4 +1,4 @@
-package org.dpow.backend.dao.model;
+package org.dpow.myapplication.dao.model;
 
 import lombok.Data;
 
