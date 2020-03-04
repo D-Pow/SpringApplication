@@ -1,8 +1,9 @@
-package org.dpow.myapplication.api;
+package org.dpow.myapplication.api.controller;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.dpow.myapplication.api.model.Greeting;
 import org.dpow.myapplication.dao.model.Employee;
 import org.dpow.myapplication.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;

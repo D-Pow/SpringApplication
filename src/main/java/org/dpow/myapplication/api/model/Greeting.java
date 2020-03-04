@@ -1,4 +1,4 @@
-package org.dpow.myapplication.api;
+package org.dpow.myapplication.api.model;
 
 public class Greeting {
     private long id;
