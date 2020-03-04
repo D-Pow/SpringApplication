@@ -10,6 +10,7 @@ public class ApplicationApi {
     @Autowired
     GreetingController greetingController;
 
+    @CrossOrigin
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
         return greetingController.greeting(name);
