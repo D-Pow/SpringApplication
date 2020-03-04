@@ -7,9 +7,9 @@ import org.dpow.myapplication.api.model.Greeting;
 import org.dpow.myapplication.dao.model.Employee;
 import org.dpow.myapplication.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Component;
 
-@RestController
+@Component
 public class GreetingController {
     @Autowired
     private EmployeeDao employeeDao;
@@ -17,8 +17,7 @@ public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
+    public Greeting greeting(String name) {
         List<Employee> employeesWithName = employeeDao.getEmployeesByName(name.toLowerCase());
 
         if (employeesWithName.size() == 0) {
@@ -30,8 +29,7 @@ public class GreetingController {
         return new Greeting(firstEmployee.getId(), firstEmployee.getName(), firstEmployee.getRole());
     }
 
-    @PostMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name, @RequestBody String postBody) {
+    public Greeting greeting(String name, String postBody) {
         return new Greeting(counter.incrementAndGet(), name, "You posted: " + postBody);
     }
 }
